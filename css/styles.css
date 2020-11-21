@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#game {
+    width: 100vw;
+    height: 100vh;
+}
+
+button {
+    display: block;
+    border: 1px solid transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.Top {
+    width: 0;
+    height: 0;
+    border-left: 15vmin solid transparent;
+    border-right: 15vmin solid transparent;
+    cursor: pointer;
+}
+
+.Bottom {
+    width: 0;
+    height: 0;
+    border-left: 15vmin solid transparent;
+    border-right: 15vmin solid transparent;
+    cursor: pointer;
+}
+
+.Right {
+    width: 0;
+    height: 0;
+    border-top: 15vmin solid transparent;
+    border-bottom: 15vmin solid transparent;
+    cursor: pointer;
+}
+
+.Left {
+    width: 0;
+    height: 0;
+    border-top: 15vmin solid transparent;
+    border-bottom: 15vmin solid transparent;
+    cursor: pointer;
+}
