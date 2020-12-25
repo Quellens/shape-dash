@@ -1,7 +1,7 @@
 import Timer from "./Timer.js";
 
 var shapes = [ "square", "circle", "rectangle", "triangle"];
-var colors = ["red", "green", "#6E44FF","#BA274A", "#2191FB", "#EF7A85","#4A6C6F","#C0BCB5"];
+var colors = ["red", "green", "#6E44FF","#BA274A", "#2191FB", "#EF7A85","#4A6C6F","#C0BCB5","#336600", "#ffff66", "#ff66a3", "#6666ff", "#5c8a8a"];
 
 export default class Shape {
     constructor({form, color, position}){

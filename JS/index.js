@@ -5,7 +5,7 @@ const game = document.getElementById("game");
 game.style.backgroundColor = "grey";
 
 var shapes = [ "square", "circle", "rectangle", "triangle"];
-var colors = ["red", "green", "#6E44FF","#BA274A", "#2191FB", "#EF7A85","#4A6C6F","#C0BCB5"];
+var colors = ["red", "green", "#6E44FF","#BA274A", "#2191FB", "#EF7A85","#4A6C6F","#C0BCB5","#336600", "#ffff66", "#ff66a3", "#6666ff", "#5c8a8a"];
 
 let shape = new Shape({
     form: shapes[Math.floor(Math.random()*shapes.length)],
@@ -16,12 +16,12 @@ let shape = new Shape({
     }
 });
 
+function randomIntFromRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 shape.create();
 shape.timer = new Timer();
 shape.timer.create();
 shape.onClick();
 game.appendChild(shape.element);
-
-function randomIntFromRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-  }
