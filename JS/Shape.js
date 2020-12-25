@@ -1,9 +1,15 @@
+import Timer from "./Timer.js";
+
+var shapes = [ "square", "circle", "rectangle", "triangle"];
+var colors = ["red", "green", "#6E44FF","#BA274A", "#2191FB", "#EF7A85","#4A6C6F","#C0BCB5"];
+
 export default class Shape {
     constructor({form, color, position}){
     this.form = form,
     this.color = color,
     this.position = position,
     this.element;
+    this.timer = null;
     }
     create() {
         if(this.form == "circle"){
@@ -41,6 +47,37 @@ export default class Shape {
 
     remove(){
         this.element.remove();
-        console.log(this);
+    }
+
+    onClick(){
+        this.element.addEventListener("click", () => {
+          this.timer.remove();
+          this.remove();
+          setTimeout(() => {
+            const newShape = new Shape({
+                form: shapes[Math.floor(Math.random()*shapes.length)],
+                color: colors[Math.floor(Math.random()*colors.length)],
+                position: {
+                    x: randomIntFromRange(game.clientWidth * 0.2, game.clientWidth * 0.8) + "px",
+                    y: randomIntFromRange(game.clientHeight * 0.2, game.clientHeight * 0.8) +"px",
+                }
+            });
+            this.form = newShape.form;
+            this.color = newShape.color;
+            this.position = newShape.position;
+            this.create(); 
+            document.getElementById("game").appendChild(this.element);
+            this.timer = new Timer();
+            this.timer.create(); 
+            this.onClick(); 
+          }, 3000 * Math.random());
+
+        })
     }
 }
+
+
+function randomIntFromRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+  
