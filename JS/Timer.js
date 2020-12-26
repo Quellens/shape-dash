@@ -1,5 +1,11 @@
+const storage = window.localStorage;
+let pb = document.createElement("h3");
+pb.innerText = storage.getItem("personal best") || ("Your PB: " + Infinity);
+const game = document.getElementById("game");
+game.appendChild(pb);
+
 export default class Timer {
-  
+
   constructor(){
     this.element = document.createElement("p"); 
     this.interval;
@@ -8,13 +14,17 @@ export default class Timer {
   remove(){
     clearInterval(this.interval);
     fade(this.element);
+    if(this.element.innerText < parseFloat(pb.innerText.split(": ")[1])){
+      pb.innerText = "Your PB: " + this.element.innerText;
+      storage.setItem("personal best", pb.innerText);
+    }
     setTimeout(() => {
     this.element.remove();  
     }, 1000);
   }
 
   create(){
-    document.getElementById("game").appendChild(this.element);
+    game.appendChild(this.element);
     let i= 0;
     this.interval = setInterval(() => {
        i += 0.01;

@@ -55,3 +55,10 @@ p {
     border-bottom: 15vmin solid transparent;
     cursor: pointer;
 }
+
+h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: rgb(43, 62, 63);
+}
